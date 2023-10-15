@@ -1,6 +1,6 @@
 # my-mvc-app
 
-Model-View-Controller application with ReactJS and FastAPI
+Model-View-Controller application with ReactJS (View) and FastAPI (Model and Controller)
 
 ## Running locally
 
