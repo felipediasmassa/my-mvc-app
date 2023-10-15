@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "username": "fmassa",
+        "email": "felipe.massa@technipfmc.com"
+    },
+    {
+        "id": 2,
+        "username": "fcastro",
+        "email": "felipe.castro2@technipfmc.com"
+    },
+    {
+        "id": 3,
+        "username": "pfranca",
+        "email": "pedro.franca@technipfmc.com"
+    }
+]
