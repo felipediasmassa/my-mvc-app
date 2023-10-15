@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { config } from "./../Utils/Config";
+import { config } from "../../utils/config";
 
 // Improvements:
 // - Clean public folder and tsx files
