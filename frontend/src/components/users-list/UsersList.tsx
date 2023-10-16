@@ -1,69 +1,38 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import User from "./interfaces/User";
 
-import { config } from "../../utils/config";
-
-// Improvements:
-// - Clean public folder and tsx files
-// - Refactor interface to dedicated module
-// - Refactor http request to custom hook
-// - Refactor request url to custom hook
-
-const urlFetchUsers = `${config.apiUrl}/users/sum-value`;
-
-// Interface for User
-interface User {
-  id: number;
-  username: string;
-  email: string;
-  sum: number;
+interface UsersListProps {
+  users: User[];
+  isLoading: boolean;
+  error: string | null;
 }
 
-const UsersList: React.FC = () => {
-  // State definition
-  const [users, setUsers] = useState<User[]>([]);
+const UsersList: React.FC<UsersListProps> = (props) => {
+  console.log(props.isLoading);
 
-  // Effect definition
-  useEffect(() => fetchUsers(), []);
+  let userList = <h2>No users found</h2>;
 
-  // Function to fetch users data from backend
-  const fetchUsers = () => {
-    const requestOptions = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    };
-    console.log("fetchUsers request:", requestOptions);
+  if (props.users.length > 0) {
+    userList = (
+      <ul>
+        {props.users.map((user) => (
+          <li key={user.id}></li>
+        ))}
+      </ul>
+    );
+  }
 
-    // Send request to database:
-    fetch(urlFetchUsers, requestOptions)
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        } else {
-          throw new Error("Data not fetched successfully from database");
-        }
-      })
-      .then((data) => {
-        console.log("fetchUsers response body", data);
-        setUsers(data);
-      })
-      .catch((error) => console.log(error));
-  };
+  let content = userList;
 
-  return (
-    <>
-      {users.map((user) => (
-        <React.Fragment key={user.id}>
-          <h3 key={user.id}>{user.username}</h3>
-          <h5>
-            Sum: {user.sum} / Email: {user.email}
-          </h5>
-        </React.Fragment>
-      ))}
-    </>
-  );
+  if (props.error) {
+    content = <button /*onClick={props.onFetch}*/>Try again</button>;
+  }
+
+  if (props.isLoading) {
+    content = <h2>Loading users...</h2>;
+  }
+
+  return <div>{content}</div>;
 };
 
 export default UsersList;

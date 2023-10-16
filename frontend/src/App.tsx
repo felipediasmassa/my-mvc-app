@@ -4,7 +4,7 @@ import "./App.css";
 
 import logo from "./assets/logo/logo.svg";
 
-import UsersList from "./components/users-list/UsersList";
+import UsersListContainer from "./components/users-list/UsersListContainer";
 
 // import { useGoogleAnalytics } from "./analytics/analytics";
 
@@ -15,7 +15,7 @@ const App = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <UsersList />
+        <UsersListContainer />
       </header>
     </div>
   );

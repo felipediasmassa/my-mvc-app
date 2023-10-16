@@ -29,4 +29,4 @@ export const useGoogleAnalytics = (): void => {
 */
 
 // Dummy export to avoid 'isolated modules' error:
-export const useGoogleAnalytics = 1;
+export const useGoogleAnalytics = () => {};
