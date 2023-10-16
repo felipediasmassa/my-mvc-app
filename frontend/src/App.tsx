@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <Router>
-      <UserContext.Provider value={{ loggedUser }}>
+      <UserContext.Provider value={{ loggedUser, setLoggedUser }}>
         <div className="App">
           <header className="App-header">
             <Routes>

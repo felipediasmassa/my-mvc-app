@@ -5,6 +5,7 @@ interface LoggedUserType {
 
 interface UserContextType {
   loggedUser: LoggedUserType;
+  setLoggedUser: React.Dispatch<React.SetStateAction<LoggedUserType>>;
 }
 
 export default UserContextType;
