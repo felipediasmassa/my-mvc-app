@@ -17,9 +17,21 @@ const UsersListContainer: React.FC = () => {
   // Effect definition
   useEffect(() => {
     fetchUsers();
-  }, [fetchUsers]);
+  }, []);
 
-  return <UsersList users={users} isLoading={isLoading} error={error} />;
+  // Lifting the state up to refetch users based on click in button in child component
+  const getUsers = () => {
+    fetchUsers();
+  };
+
+  return (
+    <UsersList
+      users={users}
+      isLoading={isLoading}
+      error={error}
+      getUsers={getUsers}
+    />
+  );
 };
 
 export default UsersListContainer;

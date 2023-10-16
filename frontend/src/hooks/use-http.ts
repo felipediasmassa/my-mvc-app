@@ -9,7 +9,7 @@ interface requestConfig {
 
 const useHttp = <T>(
   requestConfig: requestConfig,
-  applyData: React.Dispatch<React.SetStateAction<T>> // (input: any) => void
+  applyData: React.Dispatch<React.SetStateAction<T>>
 ) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
