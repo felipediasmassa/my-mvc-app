@@ -1,28 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
-import HomePage from "./pages/home-page/HomePage";
-import UserPage from "./pages/user-page/UserPage";
-
-import UserContext from "./contexts/user-context/UserContext";
-import { LoggedUserType } from "./contexts/user-context/interfaces/UserContextType";
+import { UserContextProvider } from "./contexts/user-context/UserContext";
 
 // import { useGoogleAnalytics } from "./analytics/analytics";
+
+import HomePage from "./pages/home-page/HomePage";
+import UserPage from "./pages/user-page/UserPage";
 
 const App = () => {
   // useGoogleAnalytics();
 
-  // State to be managed by context
-  const [loggedUser, setLoggedUser] = useState<LoggedUserType>({
-    email: "felipe.massa@technipfmc.com",
-    name: "Felipe Massa",
-  });
-
   return (
     <Router>
-      <UserContext.Provider value={{ loggedUser, setLoggedUser }}>
+      <UserContextProvider>
         <div className="App">
           <header className="App-header">
             <Routes>
@@ -31,7 +24,7 @@ const App = () => {
             </Routes>
           </header>
         </div>
-      </UserContext.Provider>
+      </UserContextProvider>
     </Router>
   );
 };

@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 
 import "./UserPage.css";
+
+import { UserContext } from "../../contexts/user-context/UserContext";
+import { UserContextType } from "../../contexts/user-context/interfaces/UserContextType";
+
 import UsersListContainer from "../../components/users-list/UsersListContainer";
-import UserContext from "../../contexts/user-context/UserContext";
-import UserContextType from "../../contexts/user-context/interfaces/UserContextType";
 
 const UserPage = () => {
   // State for user data:

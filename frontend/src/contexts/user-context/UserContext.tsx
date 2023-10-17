@@ -1,7 +1,30 @@
-import { createContext } from "react";
+import React, { useState, createContext } from "react";
 
-import UserContextType from "./interfaces/UserContextType";
+import { UserContextType, LoggedUser } from "./interfaces/UserContextType";
 
-const UserContext = createContext<UserContextType | null>(null);
+export const defaultContext = {
+  loggedUser: {
+    email: "",
+    name: "",
+  },
+  setLoggedUser: () => {},
+};
 
-export default UserContext;
+export const UserContext = createContext<UserContextType>(defaultContext);
+
+export const UserContextProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [loggedUser, setLoggedUser] = useState<LoggedUser>({
+    email: "felipe.massa@technipfmc.com",
+    name: "Felipe Massa",
+  });
+
+  return (
+    <UserContext.Provider value={{ loggedUser, setLoggedUser }}>
+      {children}
+    </UserContext.Provider>
+  );
+};

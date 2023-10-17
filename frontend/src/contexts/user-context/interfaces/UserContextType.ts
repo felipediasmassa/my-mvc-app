@@ -1,12 +1,9 @@
-interface LoggedUserType {
+export interface LoggedUser {
   email: string;
   name: string;
 }
 
-interface UserContextType {
-  loggedUser: LoggedUserType;
-  setLoggedUser: React.Dispatch<React.SetStateAction<LoggedUserType>>;
+export interface UserContextType {
+  loggedUser: LoggedUser;
+  setLoggedUser: React.Dispatch<React.SetStateAction<LoggedUser>>;
 }
-
-export default UserContextType;
-export type { LoggedUserType };

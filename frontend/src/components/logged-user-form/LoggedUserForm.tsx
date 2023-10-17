@@ -1,8 +1,11 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
-import UserContext from "../../contexts/user-context/UserContext";
-import UserContextType, {
-  LoggedUserType,
+import { UserContext } from "../../contexts/user-context/UserContext";
+
+import {
+  UserContextType,
+  LoggedUser,
 } from "../../contexts/user-context/interfaces/UserContextType";
 
 const LoggedUserForm = () => {
@@ -12,10 +15,13 @@ const LoggedUserForm = () => {
   ) as UserContextType;
 
   // State for input field
-  const [enteredUser, setEnteredUser] = useState<LoggedUserType>({
+  const [enteredUser, setEnteredUser] = useState<LoggedUser>({
     name: "",
     email: "",
   });
+
+  // Hook to enable navigating between screens:
+  const navigate = useNavigate();
 
   const handleChangeLoggedUser = () => {
     setLoggedUser(enteredUser);
@@ -38,6 +44,10 @@ const LoggedUserForm = () => {
     });
   };
 
+  const handleNavigateUsersPage = () => {
+    navigate("/users");
+  };
+
   return (
     <div>
       <p>Logged user: {loggedUser.email}</p>
@@ -50,6 +60,7 @@ const LoggedUserForm = () => {
         onChange={handleChangeEnteredUserEmail}
       />
       <button onClick={handleChangeLoggedUser}>Change</button>
+      <button onClick={handleNavigateUsersPage}>To Users Page</button>
     </div>
   );
 };

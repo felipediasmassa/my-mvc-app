@@ -1,8 +1,8 @@
 import React from "react";
 
-import LoggedUserForm from "../../components/logged-user-form/LoggedUserForm";
-
 import "./HomePage.css";
+
+import LoggedUserForm from "../../components/logged-user-form/LoggedUserForm";
 
 const HomePage = () => {
   return <LoggedUserForm />;

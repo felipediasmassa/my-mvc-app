@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+
 import UsersList from "./UsersList";
 import User from "./interfaces/User";
+
 import useHttp from "../../hooks/use-http";
+
 import { config } from "../../utils/config";
 
 const urlFetchUsers = `${config.apiUrl}/users/sum-value`;
