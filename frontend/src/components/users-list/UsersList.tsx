@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Button, Backdrop, CircularProgress } from "@mui/material";
+
 import User from "./interfaces/User";
 
 interface UsersListProps {
@@ -28,7 +30,9 @@ const UsersList: React.FC<UsersListProps> = (props) => {
             </li>
           ))}
         </ul>
-        <button onClick={handleButtonClick}>Get Users</button>
+        <Button variant="contained" onClick={handleButtonClick}>
+          Get Users
+        </Button>
       </>
     );
   }
@@ -36,11 +40,19 @@ const UsersList: React.FC<UsersListProps> = (props) => {
   let content = userList;
 
   if (props.error) {
-    content = <button onClick={handleButtonClick}>Try Again</button>;
+    content = (
+      <Button variant="contained" onClick={handleButtonClick}>
+        Try Again
+      </Button>
+    );
   }
 
   if (props.isLoading) {
-    content = <h2>Loading users...</h2>;
+    content = (
+      <Backdrop open={props.isLoading}>
+        <CircularProgress color="inherit" />
+      </Backdrop>
+    );
   }
 
   return <div>{content}</div>;

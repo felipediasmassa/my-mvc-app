@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { Button } from "@mui/material";
+
 import { UserContext } from "../../contexts/user-context/UserContext";
 
 import {
@@ -59,8 +61,12 @@ const LoggedUserForm = () => {
         value={enteredUser.email}
         onChange={handleChangeEnteredUserEmail}
       />
-      <button onClick={handleChangeLoggedUser}>Change</button>
-      <button onClick={handleNavigateUsersPage}>To Users Page</button>
+      <Button variant="contained" onClick={handleChangeLoggedUser}>
+        Change
+      </Button>
+      <Button variant="contained" onClick={handleNavigateUsersPage}>
+        To Users Page
+      </Button>
     </div>
   );
 };
