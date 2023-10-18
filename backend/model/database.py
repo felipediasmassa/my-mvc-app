@@ -5,7 +5,7 @@ import os
 import json
 
 
-DUMMY_DB_DIR = os.path.join("model", "dummy_db")
+DUMMY_DB_DIR = "dummy_db"
 
 
 class FakeDbEngine:
@@ -16,3 +16,7 @@ class FakeDbEngine:
             self.users = json.load(f)
         with open(os.path.join(DUMMY_DB_DIR, "others.json"), encoding="utf-8") as f:
             self.others = json.load(f)
+
+
+# Initialize the database here
+Engine = FakeDbEngine()

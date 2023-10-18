@@ -7,7 +7,7 @@ import useHttp from "../../hooks/use-http";
 
 import { config } from "../../utils/config";
 
-const urlFetchUsers = `${config.apiUrl}/users/sum-value`;
+const urlFetchUsers = `${config.apiUrl}/users/business-rule`;
 
 const UsersListContainer: React.FC = () => {
   // State definition
